@@ -18,12 +18,13 @@
             card_view:cardCornerRAdius="5dp"
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            >
+            app:cardBackgroundColor="@color/white">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_marginTop="23dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/white">
                 <TextView
                     android:layout_marginTop="15dp"
                     android:text="Ahsanul Karim Tanim"
