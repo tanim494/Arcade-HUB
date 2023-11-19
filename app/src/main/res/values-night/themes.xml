@@ -1,18 +1,4 @@
 <resources>
     <style name="Base.Theme.ArcadeHUB" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
-
-    <style name="Theme.ArcadeHUB" parent="Base.Theme.ArcadeHUB">
-        <item name="android:statusBarColor">@color/primary</item>
-    </style>
-
-    <style name="TicTacToeButton">
-        <item name="android:layout_width">110dp</item>
-        <item name="android:layout_height">110dp</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:layout_margin">4dp</item>
-        <item name="android:colorButtonNormal">@color/white</item>
-        <item name="android:background">@drawable/ic_square</item>
-        <item name="backgroundTint">#CCC3C3</item>
-    </style>
 </resources>
