@@ -17,14 +17,12 @@
             app:cardUseCompatPadding="true"
             card_view:cardCornerRAdius="5dp"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            app:cardBackgroundColor="@color/white">
+            android:layout_height="240dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_marginTop="23dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
+                android:layout_height="match_parent">
                 <TextView
                     android:layout_marginTop="15dp"
                     android:text="Ahsanul Karim Tanim"

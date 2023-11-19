@@ -1,9 +1,8 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Base.Theme.ArcadeHUB" parent="Theme.Material3.DayNight.NoActionBar">
     </style>
 
     <style name="Theme.ArcadeHUB" parent="Base.Theme.ArcadeHUB">
-        <item name="android:background">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
     </style>
 
