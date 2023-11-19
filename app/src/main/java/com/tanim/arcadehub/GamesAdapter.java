@@ -52,12 +52,10 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GameViewHold
             case "Tic Tac Toe" :
                 Intent in1 = new Intent(context, TicTacToe.class);
                 context.startActivity(in1);
-                Toast.makeText(context,"Tic Tac Toe", Toast.LENGTH_SHORT).show();
                 break;
             case "Guess The Number" :
                 Intent in2 = new Intent(context, GuessTheNumber.class);
                 context.startActivity(in2);
-                Toast.makeText(context,"Guess The Number", Toast.LENGTH_SHORT).show();
         }
     }
 

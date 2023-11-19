@@ -1,6 +1,7 @@
 package com.tanim.arcadehub;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
