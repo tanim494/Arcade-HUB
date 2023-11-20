@@ -1,7 +1,12 @@
 package com.tanim.arcadehub;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -50,13 +55,19 @@ public class TicTacToe extends AppCompatActivity {
             if (checkForWin()) {
                 if (player1Turn) {
                     resText.setText("Player 1 wins!");
+                    vibrate();
+                    resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
                     again.setVisibility(View.VISIBLE);
                 } else {
                     resText.setText("Player 2 wins!");
+                    vibrate();
+                    resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
                     again.setVisibility(View.VISIBLE);
                 }
             } else if (checkForDraw()) {
                 resText.setText("It's a draw");
+                resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
+                vibrate();
                 again.setVisibility(View.VISIBLE);
             } else {
                 player1Turn = !player1Turn;
@@ -105,5 +116,19 @@ public class TicTacToe extends AppCompatActivity {
         // Reset other game-related variables
         player1Turn = true;
         resText.setText(""); // Clear the result text
+    }
+    private void vibrate() {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Check if the device has a vibrator
+        if (vibrator != null && vibrator.hasVibrator()) {
+            // Vibrate for 300 milliseconds
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(100, 20));
+            } else {
+                // Deprecated in API 26
+                vibrator.vibrate(100);
+            }
+        }
     }
 }
