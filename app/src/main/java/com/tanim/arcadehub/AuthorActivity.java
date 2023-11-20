@@ -41,12 +41,6 @@ public class AuthorActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        TextView requestButton = findViewById(R.id.requestButton);
-        requestButton.setOnClickListener(view1 -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/FbP5xcFKteDjGVZr5"));
-            startActivity(intent);
-        });
-
         LinearLayout authorMail = findViewById(R.id.authorMail);
         authorMail.setOnClickListener(view1 -> {
             Intent intent = new Intent(Intent.ACTION_SEND);
