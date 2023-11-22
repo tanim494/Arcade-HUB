@@ -20,7 +20,6 @@
             android:id="@+id/gameIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_launcher_background"
             android:contentDescription="@null" />
 
         <!-- Game Name -->

@@ -68,19 +68,26 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ticGrid"
         android:layout_margin="16dp"
+        android:text="Player 1's Turn"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"/>
+<LinearLayout
+    android:layout_below="@id/ticResText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true">
 
     <Button
-        android:id="@+id/ticAgainBt"
+        android:id="@+id/ticResetBt"
         android:layout_width="wrap_content"
         android:layout_height="68dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/ticResText"
-        android:text="Again"
-        android:visibility="invisible"/>
+        android:textAllCaps="true"
+        android:text="Reset"
+        android:visibility="visible"/>
+</LinearLayout>
 
 
 </RelativeLayout>

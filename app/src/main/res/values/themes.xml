@@ -12,8 +12,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_margin">4dp</item>
-        <item name="android:colorButtonNormal">@color/white</item>
-        <item name="android:background">@drawable/ic_square</item>
-        <item name="backgroundTint">#CCC3C3</item>
+        <item name="android:background">@drawable/ic_tic_bg</item>
+        <item name="backgroundTint">@null</item>
     </style>
 </resources>

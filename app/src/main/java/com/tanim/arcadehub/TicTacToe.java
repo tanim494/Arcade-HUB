@@ -17,7 +17,7 @@ public class TicTacToe extends AppCompatActivity {
     private Button[][] buttons = new Button[3][3];
     private boolean player1Turn = true;
     TextView resText;
-    Button again;
+    Button reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +25,10 @@ public class TicTacToe extends AppCompatActivity {
         setContentView(R.layout.activity_tic_tac_toe);
 
         resText = findViewById(R.id.ticResText);
-        again = findViewById(R.id.ticAgainBt);
+        reset = findViewById(R.id.ticResetBt);
 
-        again.setOnClickListener(v -> {
-            // Reset the game
-            resetGame();
-            // Hide the "Play Again" button
-            again.setVisibility(View.GONE);
-        });
+        //Reset game upon clicking reset button
+        reset.setOnClickListener(view -> resetGame());
 
         // Initialize buttons
         for (int i = 0; i < 3; i++) {
@@ -49,26 +45,25 @@ public class TicTacToe extends AppCompatActivity {
         if (button.getText().toString().equals("")) {
             if (player1Turn) {
                 button.setText("X");
+                resText.setText("Player 2's Turn");
             } else {
                 button.setText("O");
+                resText.setText("Player 1's Turn");
             }
             if (checkForWin()) {
                 if (player1Turn) {
                     resText.setText("Player 1 wins!");
                     vibrate();
                     resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
-                    again.setVisibility(View.VISIBLE);
                 } else {
                     resText.setText("Player 2 wins!");
                     vibrate();
                     resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
-                    again.setVisibility(View.VISIBLE);
                 }
             } else if (checkForDraw()) {
                 resText.setText("It's a draw");
                 resText.startAnimation(AnimationUtils.loadAnimation(TicTacToe.this, R.anim.shake));
                 vibrate();
-                again.setVisibility(View.VISIBLE);
             } else {
                 player1Turn = !player1Turn;
             }
@@ -112,14 +107,12 @@ public class TicTacToe extends AppCompatActivity {
                 buttons[i][j].setText("");
             }
         }
-
         // Reset other game-related variables
         player1Turn = true;
         resText.setText(""); // Clear the result text
     }
     private void vibrate() {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
         // Check if the device has a vibrator
         if (vibrator != null && vibrator.hasVibrator()) {
             // Vibrate for 300 milliseconds
