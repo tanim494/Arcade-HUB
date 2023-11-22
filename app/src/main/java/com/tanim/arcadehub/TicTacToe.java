@@ -124,7 +124,7 @@ public class TicTacToe extends AppCompatActivity {
         if (vibrator != null && vibrator.hasVibrator()) {
             // Vibrate for 300 milliseconds
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(100, 20));
+                vibrator.vibrate(VibrationEffect.createOneShot(100, 200));
             } else {
                 // Deprecated in API 26
                 vibrator.vibrate(100);

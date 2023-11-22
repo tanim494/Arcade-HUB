@@ -13,7 +13,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +38,7 @@ public class GuessTheNumber extends AppCompatActivity {
         TextView res = findViewById(R.id.resultText);
 
         vibTog = findViewById(R.id.vibToggle);
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = getSharedPreferences(PREF_VIBRATION_ENABLED, Context.MODE_PRIVATE);
 
 
         AtomicBoolean isVibrationEnabled = new AtomicBoolean(preferences.getBoolean(PREF_VIBRATION_ENABLED, true));
@@ -77,9 +76,9 @@ public class GuessTheNumber extends AppCompatActivity {
                         check.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
                         res.startAnimation(AnimationUtils.loadAnimation(GuessTheNumber.this, R.anim.shake));
                         if (computerGuess > userInput) {
-                            res.setText("Wrong, Number is higher");
+                            res.setText("Wrong, higher than " + userInput);
                         } else {
-                            res.setText("Wrong, Number is lower");
+                            res.setText("Wrong, lower than " + userInput);
                         }
                         tries++;
                     }
@@ -105,7 +104,7 @@ public class GuessTheNumber extends AppCompatActivity {
         if (vibrator != null && vibrator.hasVibrator()) {
             // Vibrate for 300 milliseconds
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(100, 20));
+                vibrator.vibrate(VibrationEffect.createOneShot(100, 200));
             } else {
                 // Deprecated in API 26
                 vibrator.vibrate(100);
