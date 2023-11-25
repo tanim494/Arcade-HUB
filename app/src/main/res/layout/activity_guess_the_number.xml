@@ -60,7 +60,7 @@
                     android:layout_marginRight="10dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:hint="Max Limit"
+                    android:hint="Set Limit"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
