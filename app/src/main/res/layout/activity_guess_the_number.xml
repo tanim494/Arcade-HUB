@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/grid_bg"
-        android:text="Guess a number!"
+        android:text="Guess The number!"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="32sp"
         android:textColor="@android:color/white"
         android:shadowColor="#000000"
         android:shadowDx="2"
@@ -56,6 +56,7 @@
                     android:id="@+id/guessTimer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Timer"
                     android:layout_gravity="end"
                     android:layout_marginRight="10dp"/>
 
@@ -117,13 +118,21 @@
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:textColor="@color/white"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:elevation="15dp"
-                android:gravity="center"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/vibeBT"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_vibrate"
+                android:layout_margin="5dp"
+                />
 
         </LinearLayout>
 
@@ -133,39 +142,12 @@
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
         android:textSize="30sp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guessCard" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/grid_bg"
-        android:backgroundTint="#CBFFFFFF"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resultText">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vibration"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:layout_margin="16dp"/>
-        <Button
-            android:id="@+id/vibToggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#46000000"
-            android:layout_margin="16dp"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

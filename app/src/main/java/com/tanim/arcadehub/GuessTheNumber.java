@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +26,6 @@ public class GuessTheNumber extends AppCompatActivity {
     private int tries = 0;
     private long elapsedTimeInMillis = 0;
     private static final String PREF_VIBRATION_ENABLED = "pref_vibration_enabled";
-    private Button vibTog;
     private SharedPreferences preferences;
     private TextView guessTimer;
     private CountDownTimer countDownTimer;
@@ -39,17 +39,19 @@ public class GuessTheNumber extends AppCompatActivity {
         EditText max = findViewById(R.id.maxLimit);
         EditText user = findViewById(R.id.userInput);
         Button check = findViewById(R.id.checkButton);
+        Button vibToggle = findViewById(R.id.vibeBT);
         TextView res = findViewById(R.id.resultText);
         guessTimer = findViewById(R.id.guessTimer);
 
-        vibTog = findViewById(R.id.vibToggle);
         preferences = getSharedPreferences(PREF_VIBRATION_ENABLED, Context.MODE_PRIVATE);
         AtomicBoolean isVibrationEnabled = new AtomicBoolean(preferences.getBoolean(PREF_VIBRATION_ENABLED, true));
-        vibTog.setText(isVibrationEnabled.get() ? "On" : "Off");
-        vibTog.setOnClickListener(view -> {
-            isVibrationEnabled.set(!isVibrationEnabled.get()); // Toggle the boolean value
+
+        vibToggle.setBackgroundResource(isVibrationEnabled.get() ? R.drawable.ic_vibrate : R.drawable.ic_not_vibrate);
+        vibToggle.setOnClickListener(view -> {
+            isVibrationEnabled.set(!isVibrationEnabled.get());
             preferences.edit().putBoolean(PREF_VIBRATION_ENABLED, isVibrationEnabled.get()).apply();
-            vibTog.setText(isVibrationEnabled.get() ? "On" : "Off");
+            vibToggle.setBackgroundResource(isVibrationEnabled.get() ? R.drawable.ic_vibrate : R.drawable.ic_not_vibrate);
+            Toast.makeText(GuessTheNumber.this, isVibrationEnabled.get() ? "Vibration ON" : "Vibration OFF", Toast.LENGTH_SHORT).show();
         });
 
         check.setOnClickListener(view -> {
